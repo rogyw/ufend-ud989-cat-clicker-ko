@@ -15,4 +15,22 @@ var ViewModel = function() {
         this.clickCount(this.clickCount() + 1);
     };
 
+    this.clickLevel = ko.computed(function() {
+        var count = this.clickCount();
+        if (count < 10) {
+            return "Newborn";
+        } else if (count < 20) {
+            return "Infant";
+        } else if (count < 100) {
+            return "Teen";
+        } else if (count < 200) {
+            return "Adult";
+        } else if (count < 300) {
+            return "Senior";
+        } else {
+            return "Grandparent";
+        }
+    }, this);
+};
+
 ko.applyBindings(new ViewModel());
