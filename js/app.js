@@ -5,7 +5,9 @@
 // set jshint to ignore external global ko
 /* global ko: false */
 
-var ViewModel = function() {
+
+var Cat = function() {
+
     this.clickCount = ko.observable(0);
     this.name = ko.observable('Tabby');
     this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
@@ -15,10 +17,6 @@ var ViewModel = function() {
         { name: "oscar" },
         { name: "bertie" }
     ]);
-
-    this.incrementCounter = function() {
-        this.clickCount(this.clickCount() + 1);
-    };
 
     this.clickLevel = ko.computed(function() {
         var count = this.clickCount();
@@ -36,6 +34,16 @@ var ViewModel = function() {
             return "Grandparent";
         }
     }, this);
+};
+
+var ViewModel = function() {
+
+    this.currentCat = ko.observable(new Cat());
+
+    this.incrementCounter = function() {
+        this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+    };
+
 };
 
 ko.applyBindings(new ViewModel());
