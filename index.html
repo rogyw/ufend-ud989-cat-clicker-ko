@@ -8,12 +8,12 @@
 
 <body>
     <ul></ul>
-    <div>
-        <h2 data-bind="text: currentCat().name"></h2>
-        <h3 data-bind="text: currentCat().clickLevel"></h3>
-        <div data-bind="text: currentCat().clickCount"></div>
-        <img src="" alt="cute cat" data-bind="click: incrementCounter, attr: {src: currentCat().imgSrc}">
-        <ul data-bind="foreach: currentCat().nicknames">
+    <div data-bind="with: currentCat">
+        <h2 data-bind="text: name"></h2>
+        <h3 data-bind="text: clickLevel"></h3>
+        <div data-bind="text: clickCount"></div>
+        <img src="" alt="cute cat" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc}">
+        <ul data-bind="foreach: nicknames">
             <li data-bind="text: name"></li>
         </ul>
     </div>
