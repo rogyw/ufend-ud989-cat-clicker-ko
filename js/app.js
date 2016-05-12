@@ -38,10 +38,21 @@ var Cat = function() {
 
 var ViewModel = function() {
 
+    //self represents the ViewModel this (Some developers use that instead of self)
+    var self = this;
+
     this.currentCat = ko.observable(new Cat());
 
+    // Solution 1:
     this.incrementCounter = function() {
+        //uses this within binding context
         this.clickCount(this.clickCount() + 1);
+    };
+
+    // Solution 2:
+    // Example alternative function using self to reference ViewModel for use within binding context
+    this.increaseCounter = function() {
+        self.currentCat().clickCount(self.currentCat().clickCount() + 1);
     };
 
 };
