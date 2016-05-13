@@ -42,11 +42,7 @@ var ViewModel = function() {
         name: 'Tabby',
         imgSrc: 'img/434164568_fea0ad4013_z.jpg',
         imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
-        nicknames: [
-            { name: "sweetie" },
-            { name: "oscar" },
-            { name: "bertie" }
-        ]
+        nicknames: ["sweetie", "oscar", "bertie"]
     }));
 
     // Solution 1:
