@@ -8,7 +8,7 @@
 
 <body>
     <ul data-bind="foreach: catList">
-        <li data-bind="text: name">
+        <li data-bind="text: name, click: $parent.makeCurrent">
         </li>
     </ul>
     <div data-bind="with: currentCat">

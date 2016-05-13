@@ -14,7 +14,7 @@ var initialCats = [{
 }, {
     clickCount: 0,
     name: 'Shadow',
-    imgSrc: '1413379559_412a540d29_z.jpg',
+    imgSrc: 'img/1413379559_412a540d29_z.jpg',
     imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
     nicknames: ['Follower', 'Shaddy', 'Shooby']
 }, {
@@ -32,7 +32,7 @@ var initialCats = [{
 }, {
     clickCount: 0,
     name: 'MilkyBar',
-    imgSrc: 'img/434164568_fea0ad4013_z.jpg',
+    imgSrc: 'img/9648464288_2516b35537_z.jpg',
     imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
     nicknames: ['Milky']
 }];
@@ -86,6 +86,10 @@ var ViewModel = function() {
     // Example alternative function using self to reference ViewModel for use within binding context
     this.increaseCounter = function() {
         self.currentCat().clickCount(self.currentCat().clickCount() + 1);
+    };
+
+    this.makeCurrent = function(clickedCat) {
+        self.currentCat(clickedCat);
     };
 
 };
