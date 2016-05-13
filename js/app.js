@@ -5,6 +5,37 @@
 // set jshint to ignore external global ko
 /* global ko: false */
 
+var initialCats = [{
+    clickCount: 0,
+    name: 'Tabby',
+    imgSrc: 'img/434164568_fea0ad4013_z.jpg',
+    imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
+    nicknames: ['Sweetie', 'Oscar', 'Bertie', 'TabTab', 'T-bone', 'Mr. T', 'Tabitha Tab Tabby Catty Cat']
+}, {
+    clickCount: 0,
+    name: 'Shadow',
+    imgSrc: '1413379559_412a540d29_z.jpg',
+    imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
+    nicknames: ['Follower', 'Shaddy', 'Shooby']
+}, {
+    clickCount: 0,
+    name: 'Scaredy',
+    imgSrc: 'img/22252709_010df3379e_z.jpg',
+    imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
+    nicknames: ['Squid', 'Casper']
+}, {
+    clickCount: 0,
+    name: 'Tiger',
+    imgSrc: 'img/4154543904_6e2428c421_z.jpg',
+    imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
+    nicknames: ['Tigger']
+}, {
+    clickCount: 0,
+    name: 'MilkyBar',
+    imgSrc: 'img/434164568_fea0ad4013_z.jpg',
+    imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
+    nicknames: ['Milky']
+}];
 
 var Cat = function(data) {
 
@@ -37,13 +68,13 @@ var ViewModel = function() {
     //self represents the ViewModel this (Some developers use that instead of self)
     var self = this;
 
-    this.currentCat = ko.observable(new Cat({
-        clickCount: 0,
-        name: 'Tabby',
-        imgSrc: 'img/434164568_fea0ad4013_z.jpg',
-        imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
-        nicknames: ["sweetie", "oscar", "bertie"]
-    }));
+    this.catList = ko.observableArray([]);
+
+    initialCats.forEach(function(catItem) {
+        self.catList.push(new Cat(catItem));
+    });
+
+    this.currentCat = ko.observable(this.catList()[0]);
 
     // Solution 1:
     this.incrementCounter = function() {
